@@ -1,0 +1,33 @@
+<div layout=row layout-align="center center" flex>
+  <md-card class="login-card">
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">Login</span>
+      </md-card-title-text>
+    </md-card-title>
+
+    <form name="loginForm">
+      <md-card-content>
+        <md-input-container md-no-float class="md-block">
+          <input type="email" name="email" ng-model="vm.email" placeholder="Email" required />
+          <dv ng-messages="loginForm.email.$error">
+            <div ng-message="required">required</div>
+            <div ng-message="email">invalid email</div>
+          </dv>
+        </md-input-container>
+
+        <md-input-container md-no-float class="md-block">
+          <input type="password" name="password" ng-model="vm.password" placeholder="Password" required />
+          <dv ng-messages="loginForm.password.$error">
+            <div ng-message="required">required</div>
+          </dv>
+        </md-input-container>
+      </md-card-content>
+
+      <md-card-actions layout="row" layout-align="end">
+        <span class="error-message" ng-if="vm.errored">Invalid login cradentials</span>
+        <md-button type="submit" class="md-primary" ng-disabled="loginForm.$invalid" ng-click="vm.login()">Go</md-button>
+      </md-card-actions>
+    </form>
+  </md-card>
+</div>
